@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Decoder - Stegano-Spy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <div>
+        <h1>Steganography Decoder</h1>
+        <form method="POST" enctype="multipart/form-data" onsubmit="return validateDecoder(event)">
+            <div class="file-wrapper">
+                <input type="file" name="stego_image" id="stego_image" accept="image/*" required onchange="hideWarning('stego_warning'); showFileName('stego_image', 'stego_name')">
+                <label for="stego_image">Choose Stego Image</label>
+            </div>
+            <div id="stego_name" class="file-name">{{ selected_file|default('') }}</div>
+            <div id="stego_warning" class="warning" {% if show_warning %}style="display: block;"{% else %}style="display: none;"{% endif %}>Please select a stego image!</div>
+            <label>Decode Method:</label><br>
+            <select id="method" name="method" onchange="toggleManual()">
+                <option value="auto" {% if selected_method == 'auto' %}selected{% endif %}>Auto Detect</option>
+                <option value="manual" {% if selected_method == 'manual' %}selected{% endif %}>Manual</option>
+            </select><br>
+            <div id="manual_options" style="display: {% if selected_method == 'manual' %}block{% else %}none{% endif %};">
+                <label>Select Method:</label><br>
+                <select name="manual_method">
+                    <option value="lsb" {% if selected_manual_method == 'lsb' %}selected{% endif %}>LSB</option>
+                    <option value="ai" {% if selected_manual_method == 'ai' %}selected{% endif %}>AI-based</option>
+                    <option value="dct" {% if selected_manual_method == 'dct' %}selected{% endif %}>DCT</option>
+                </select><br>
+            </div>
+            <input type="submit" value="Decode" onclick="return validateFile('stego_image', 'stego_warning');">
+            <div id="loader" class="loader"></div>
+        </form>
+        {% if decoded_text %}
+            <h2 class="glitch">Decoded Text:</h2>
+            <div class="message-box">
+                <p>{{ decoded_text }}</p>
+                <button onclick="copyToClipboard('{{ decoded_text }}', 'copy_noti'); playSound()">Copy</button>
+                <span id="copy_noti" class="copy-noti">Text copied</span>
+            </div>
+        {% endif %}
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="playSoundAndNavigate('/')">Back to Main</button>
+        </div>
+    </div>
+</body>
+</html>

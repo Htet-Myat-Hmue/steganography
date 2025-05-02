@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encoder Output - Stegano-Spy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <div>
+        <h1>Encoded Stego Image</h1>
+        <div style="text-align: center;">
+            <img src="{{ url_for('static', filename=output_image) }}" alt="Stego Image">
+            <br>
+            <a href="{{ url_for('static', filename=output_image) }}" download="stego.png">
+                <button onclick="playSound()">Download</button>
+            </a>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="playSoundAndNavigate('/')">Back to Main</button>
+        </div>
+    </div>
+</body>
+</html>

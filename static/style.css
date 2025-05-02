@@ -1,0 +1,225 @@
+body {
+    background: #1a1a1a url('/static/terminal_bg.png') repeat;
+    background-opacity: 0.1;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    margin: 0;
+    padding: 0;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color: #ff00ff;
+    text-shadow: 0 0 5px #ff00ff;
+    text-align: center;
+}
+
+button, input[type="submit"] {
+    background: #333;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover, input[type="submit"]:hover {
+    background: #00ff00;
+    color: #1a1a1a;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+a {
+    text-decoration: none;
+}
+
+form {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+}
+\\
+input[type="file"], input[type="text"], select {
+    background: #1a1a1a;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 8px;
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+}
+
+input[type="text"] {
+    background: #1a1a1a;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 8px;
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Courier New', monospace;
+}
+
+input[type="text"]::placeholder {
+    color: #00cc00;
+}
+
+input[type="text"]:focus,
+input[type="text"]:active {
+    background: #1a1a1a !important;
+    color: #00ff00 !important;
+    outline: none !important;
+    border: 1px solid #00ff00 !important;
+}
+
+/* input[type="text"]::placeholder {
+    color: #00cc00;
+}
+
+input[type="text"]:focus {
+    background: #1a1a1a;
+    color: #00ff00;
+    outline: none;
+} */
+
+img {
+    max-width: 100%;
+    border: 2px solid #ff00ff;
+    box-shadow: 0 0 10px #ff00ff;
+}
+
+.glitch {
+    animation: glitch 1s infinite alternate;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(0); }
+}
+
+.loader {
+    display: none;
+    border: 4px solid #00ff00;
+    border-top: 4px solid #ff00ff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.file-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.file-wrapper input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.file-wrapper label {
+    background: #333;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    padding: 8px 16px;
+    display: block;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.file-wrapper label:hover {
+    background: #00ff00;
+    color: #1a1a1a;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.file-name {
+    color: #00ff00;
+    font-size: 0.9em;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.warning {
+    display: none;
+    color: #ff0000;
+    font-size: 0.9em;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.message-box {
+    background: #2a2a2a;
+    border: 2px solid #00ff00;
+    padding: 15px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+    max-width: 500px;
+    width: 100%;
+}
+
+.message-box p {
+    margin: 0;
+    color: #00ff00;
+    word-break: break-all;
+}
+
+.message-box button {
+    background: #333;
+    color: #00ff00;
+    border: 2px solid #00ff00;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.message-box button:hover {
+    background: #00ff00;
+    color: #1a1a1a;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+.copy-noti {
+    display: none;
+    color: #00ff00;
+    font-size: 0.9em;
+    margin-left: 10px;
+}
+
+.logo {
+    display: block;          /* Makes it a block element for centering */
+    margin: 0 auto 0;     /* Centers horizontally, adds 20px bottom margin */
+    width: 180px;            /* Adjust size as needed */
+    height: auto;      
+    background-color: transparent;
+    border: none;
+    box-shadow: none;      /* Maintains aspect ratio */
+    position: relative;
+    top: 35px;
+} 

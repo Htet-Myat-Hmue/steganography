@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stegano-Spy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <style>
+        .index-title { font-size: 3em; }
+        .index-button { font-size: 1.5em; padding: 15px 30px; }
+        .index-text { font-size: 1.2em; }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Stegano-Spy Logo" class="logo">
+        <h1 class="glitch index-title">Stegano-Spy</h1>
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="index-button" onclick="playSoundAndNavigate('/encoder')">Encoder</button>
+            <button class="index-button" onclick="playSoundAndNavigate('/decoder')">Decoder</button>
+        </div>
+        <p class="index-text" style="text-align: center; margin-top: 20px; color: #00cc00;">
+            Hack the hidden. Crack the unseen.
+        </p>
+    </div>
+</body>
+</html>

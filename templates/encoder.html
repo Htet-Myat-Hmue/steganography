@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encoder - Stegano-Spy</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <div>
+        <h1>Steganography Encoder</h1>
+        <form method="POST" enctype="multipart/form-data" onsubmit="return validateEncoder(event)">
+            <div class="file-wrapper">
+                <input type="file" name="cover_image" id="cover_image" accept="image/*" required onchange="hideWarning('cover_warning'); showFileName('cover_image', 'cover_name')">
+                <label for="cover_image">Choose Cover Image</label>
+            </div>
+            <div id="cover_name" class="file-name"></div>
+            <div id="cover_warning" class="warning">Please select a cover image!</div>
+            <label>Secret Message:</label><br>
+            <input type="text" name="message" placeholder="flag{secret}" required><br>
+            <label>Encryption Method:</label><br>
+            <select name="method" id="method">
+                <option value="ai">AI</option>
+                <option value="lsb">LSB</option>
+                <option value="dct">DCT</option>
+            </select><br>
+            <input type="submit" value="Encode" onclick="return validateFile('cover_image', 'cover_warning');">
+            <div id="loader" class="loader"></div>
+        </form>
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="playSoundAndNavigate('/')">Back to Main</button>
+        </div>
+    </div>
+</body>
+</html>
